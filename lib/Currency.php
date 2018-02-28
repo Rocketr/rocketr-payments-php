@@ -2,6 +2,8 @@
 
 namespace RocketrPayments;
 
+use RocketrPayments\RocketrPaymentsException;
+
 class Currency {
 	
 	const USD = [

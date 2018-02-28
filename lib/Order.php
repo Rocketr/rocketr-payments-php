@@ -2,6 +2,11 @@
 
 namespace RocketrPayments;
 
+use RocketrPayments\InvoiceStatus;
+use RocketrPayments\PaymentMethods;
+use RocketrPayments\ShippingAddress;
+use RocketrPayments\RocketrPaymentsException;
+
 class Order {
 
 	//@var String | This is an identifier for the order.

@@ -2,6 +2,12 @@
 
 namespace RocketrPayments;
 
+use RocketrPayments\InvoiceStatus;
+use RocketrPayments\PaymentMethods;
+use RocketrPayments\ShippingAddress;
+use RocketrPayments\RocketrPaymentsException;
+
+
 class Invoice {
 	//@var String | This is an identifier for the invoice
 	private $invoiceIdentifier;

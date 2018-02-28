@@ -2,6 +2,10 @@
 
 namespace RocketrPayments;
 
+use RocketrPayments\ApiHandler;
+use RocketrPayments\RocketrPaymentsException;
+use RocketrPaymentsException\RocketrPaymentsApiException;
+
 class ApiHandler {
 	
 	private $baseUrl;

@@ -2,6 +2,9 @@
 
 namespace RocketrPayments;
 
+use RocketrPayments\ApiHandler;
+use RocketrPayments\RocketrPaymentsException;
+
 class RocketrPayments {
 	
 	//@var String | Application ID
