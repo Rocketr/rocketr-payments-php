@@ -3,7 +3,7 @@
 	"description": "Rocketr PHP library",
 	"license": "MIT",
 	"homepage": "https://rocketr.net/",
-	"version": 1.0.0,
+	"version": 1.0,
 	"authors": [{
 		"name": "Rocketr",
 		"email": "saad@rocketr.net"
