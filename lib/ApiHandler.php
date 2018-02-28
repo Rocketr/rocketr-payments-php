@@ -4,7 +4,7 @@ namespace RocketrPayments;
 
 use RocketrPayments\ApiHandler;
 use RocketrPayments\RocketrPaymentsException;
-use RocketrPaymentsException\RocketrPaymentsApiException;
+use RocketrPayments\RocketrPaymentsApiException;
 
 class ApiHandler {
 	
