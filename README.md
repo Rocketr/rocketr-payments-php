@@ -3,7 +3,7 @@
 We are still working on getting this setup via composer. For now, to use, please add the following line to your code:
 
 ```php
-require_once('/path-to-rocketpay-php-sdk/init.php');
+require_once('/path-to-rocketr-payments-php/init.php');
 ```
 
 # Getting Started
