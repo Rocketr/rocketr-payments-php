@@ -1,0 +1,19 @@
+{
+	"name": "rocketr/rocketr-payments-php",
+	"description": "Rocketr PHP library",
+	"license": "MIT",
+	"homepage": "https://rocketr.net/",
+	"authors": [{
+		"name": "Rocketr",
+		"email": "saad@rocketr.net"
+	}],
+	"require": {
+		"php": ">=5.4.0",
+    		"ext-curl": "*",
+    		"ext-json": "*",
+    		"ext-mbstring": "*"
+	},
+	"autoload": {
+		"psr-4": { "RocketrPayments\\" : "lib/" }
+	}
+}
