@@ -1,6 +1,20 @@
 # Rocketr Payments API
 
-We are still working on getting this setup via composer. For now, to use, please add the following line to your code:
+### Composer
+The easiest way to use the library is through [Composer](https://getcomposer.org/):
+
+```shell
+composer require rocketr/rocketr-payments-php
+```
+
+Then in your code, load the [Autoloader](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
+```php
+require_once('vendor/autoload.php');
+```
+
+### Manual Installation
+
+To manually use the library, download the [latest release](https://github.com/Rocketr/rocketr-payments-php/releases) and include the `init.php` file in your code:
 
 ```php
 require_once('/path-to-rocketr-payments-php/init.php');
@@ -24,7 +38,7 @@ $o->setIpnUrl('https://rocketr.net/webhook.php');
 
 $result = $o->createOrder();
 
-echo 'Please send ' . $result['paymentInstruction']['amount']  . $result['paymentInstruction']['currencyText'] . ' to ' . $result['paymentInstruction']['address'];
+echo 'Please send ' . $result['paymentInstructions']['amount']  . $result['paymentInstructions']['currencyText'] . ' to ' . $result['paymentInstructions']['address'];
 ```
 
 # Support
