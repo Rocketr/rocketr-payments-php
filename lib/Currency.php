@@ -65,6 +65,13 @@ class Currency {
 		'long' => 'Ethereum',
 		'short' => 'ETH',
 	];
+	
+	const LTC = [
+		'id' => 103,
+		'long' => 'Litecoin',
+		'short' => 'LTC',
+	];
+
 
 	public static function getCurrencyFromId($id) {
 		$id = intval($id);

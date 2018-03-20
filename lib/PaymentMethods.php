@@ -43,10 +43,16 @@ class PaymentMethods {
     
     const BitcoinCashPayment = [
         "id" => 6,
-        "name" => "bcc",
+        "name" => "bch",
         "prettyName" => "Bitcoin Cash"
     ];
     
+    const LitecoinPayment = [
+        "id" => 7,
+        "name" => "ltc",
+        "prettyName" => "Litecoin"
+    ];
+
     public static function getConstFromId($id){
         switch($id){
             case PaymentMethods::PaypalPayment['id']:

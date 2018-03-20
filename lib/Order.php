@@ -65,24 +65,29 @@ class Order {
 		return $response[1];
 	}
 
-	public function __construct() {
-		$this->apiHandler = RocketrPayments::getApiHandler();
-		$this->orderIdentifier = '';
-		$this->buyerEmail = '';
-		$this->buyerIp = '';
-		$this->paymentMethod = '';
-		$this->amount = '';
-		$this->notes = '';
-		$this->customFields = [];
-		$this->status = '';
-		$this->purchasedAt = '';
-		$this->countryCode = '';
-		$this->currency = Currency::USD;
-		$this->ipnUrl = '';
-		$this->shippingAddress = [];
+	public function __construct($row = []) {
 
-		$this->invoiceIdentifier = null;
-		$this->paymentInstructions = ['error' => 'Order has not been created yet'];
+		if(isset($row) && is_array($row) && sizeof($row) > 0) {
+			$this->createFromArray($row);
+		} else {
+			$this->apiHandler = RocketrPayments::getApiHandler();
+			$this->orderIdentifier = '';
+			$this->buyerEmail = '';
+			$this->buyerIp = '';
+			$this->paymentMethod = '';
+			$this->amount = '';
+			$this->notes = '';
+			$this->customFields = [];
+			$this->status = '';
+			$this->purchasedAt = '';
+			$this->countryCode = '';
+			$this->currency = Currency::USD;
+			$this->ipnUrl = '';
+			$this->shippingAddress = [];
+
+			$this->invoiceIdentifier = null;
+			$this->paymentInstructions = ['error' => 'Order has not been created yet'];
+		}
 	}
 
 	/**
@@ -122,6 +127,35 @@ class Order {
 		if(strlen($this->invoiceIdentifier) > 0)
 			$toEncode['invoiceIdentifier'] = $this->invoiceIdentifier;
 		return json_encode($toEncode);
+	}
+
+	/**
+	 * Converts a JSON object to an Order object
+	**/
+	private function createFromArray($arr) {
+		$this->orderIdentifier = isset($arr['orderIdentifier']) ? $arr['orderIdentifier'] : null;
+		$this->buyerEmail = isset($arr['buyerEmail']) ? $arr['buyerEmail'] : null;
+		$this->buyerIp = isset($arr['buyerIp']) ? $arr['buyerIp'] : null;
+		$this->paymentMethod = isset($arr['paymentMethod']) ? PaymentMethods::getConstFromId(intval($arr['paymentMethod'])) : null;
+		$this->amount = isset($arr['amount']) ? floatval($arr['amount']) : null;
+		$this->notes = isset($arr['notes']) ? $arr['notes'] : null;
+		$this->customFields = isset($arr['customFields']) ? $arr['customFields'] : null;
+		$this->status = isset($arr['status']) ? intval($arr['status']) : null;
+		$this->purchasedAt = isset($arr['purchasedAt']) ? intval($arr['purchasedAt']) : null;
+		$this->countryCode = isset($arr['countryCode']) ? $arr['countryCode'] : null;
+		
+		if(isset($arr['currency'])){
+			if(is_numeric($arr['currency']))
+				$this->currency = Currency::getCurrencyFromId($arr['currency']);
+			else
+				$this->currency = Currency::getCurrencyFromShort($arr['currency']);
+		} else {
+			$this->currency = null;
+		}
+		$this->ipnUrl = isset($arr['ipnUrl']) ? $arr['ipnUrl'] : null;
+		$this->shippingAddress = isset($arr['shippingAddress']) ? $arr['shippingAddress'] : null;
+		$this->invoiceIdentifier = isset($arr['invoiceIdentifier']) ? $arr['invoiceIdentifier'] : null;
+		$this->paymentInsructions = isset($arr['paymentInsructions']) ? $arr['paymentInsructions'] : null;
 	}
 
 
